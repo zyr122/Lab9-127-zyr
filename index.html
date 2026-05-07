@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>个人简历 · 分组表单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 1000px;
+            margin: 20px auto;
+            border: 1px solid #333;
+            border-collapse: collapse;
+            background: #fff;
+        }
+
+        .row {
+            display: flex;
+            border-bottom: 1px solid #333;
+            height: 70px;
+            align-items: center;
+        }
+
+        .label {
+            width: 120px;
+            background: #d3d3d3;   
+            font-weight: bold;
+            text-align: center;
+            height: 100%;
+            line-height: 60px;
+            border-right: none;
+        }
+
+        .item {
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .photo-container {
+            width: 180px;
+            height: auto;
+            min-height: 210px;
+            border-left: 1px solid #333;
+            border-bottom: 1px solid #333;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 8px;
+            gap: 10px;
+        }
+
+        .photo-img-box {
+            width: 140px;
+            height: 140px;
+            background: #fafafa;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .photo-img-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            color: #777;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .file-btn {
+            background: #e0e0e0;
+            border: 1px solid #aaa;
+            padding: 4px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .file-btn:hover {
+            background: #ccc;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        input, select {
+            padding: 4px 6px;
+            border: 1px solid #999;
+            background: #fff;
+            border-radius: 0;
+        }
+
+        textarea {
+            width: 98%;
+            height: 60px;
+            resize: none;
+            margin-top: 5px;
+            border: 1px solid #999;
+            padding: 5px;
+        }
+
+        .btn-bar {
+            text-align: center;
+            padding: 10px;
+        }
+
+        button {
+            padding: 6px 20px;
+            margin: 0 10px;
+            background: #e0e0e0;
+            border: 1px solid #999;
+            cursor: pointer;
+        }
+
+        .group-title {
+            background-color: #e8e8e8;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-bottom: 1px solid #333;
+            border-top: 1px solid #333;
+        }
+
+        .group-title:first-of-type {
+            border-top: none;
+        }
+
+        .info-main {
+            flex: 1;
+        }
+
+        .inline-radio, .inline-check {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .fix-width {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div style="text-align:center; font-size:24px; font-weight:bold; padding:15px 0; border-bottom:1px solid #333;">
+        个人简历
+    </div>
+
+    <div class="group-title">📋 基本信息</div>
+
+    <div style="display: flex;">
+        <div style="flex: 1;">
+            <div class="row">
+                <div class="label">姓名</div>
+                <div class="item"><input type="text" maxlength="10" value="赵依然" style="width:140px;"></div>
+                <div class="label">性别</div>
+                <div class="item" style="width: 160px;">
+                    <div class="inline-radio">
+                        <label><input type="radio" name="gender" checked> 女</label>
+                        <label><input type="radio" name="gender"> 男</label>
+                    </div>
+                </div>
+                <div class="label">年龄</div>
+                <div class="item">20</div>
+            </div>
+            <div class="row">
+                <div class="label">🏠籍贯</div>
+                <div class="item">
+                    <select style="width: 140px;">
+                        <option selected>山东菏泽</option>
+                        <option>山东济南</option>
+                        <option>山东青岛</option>
+                        <option>山东烟台</option>
+                        <option>山东潍坊</option>
+                    </select>
+                </div>
+                <div class="label">📞联系电话</div>
+                <div class="item"><input type="text" value="18833556459" style="width:120px;"></div>
+                <div class="label">✉电子邮箱</div>
+                <div class="item"><input type="text" value="24995939@qq.com" style="width:120px;"></div>
+            </div>
+            <div class="row">
+                <div class="label">🎓学历</div>
+                <div class="item">
+                    <select style="width: 140px;">
+                        <option selected>本科</option>
+                        <option>专科</option>
+                        <option>硕士</option>
+                        <option>博士</option>
+                        <option>高中</option>
+                    </select>
+                </div>
+                <div class="label">🩺健康状况</div>
+                <div class="item">
+                    <select style="width: 120px;">
+                        <option selected>良好</option>
+                        <option>一般</option>
+                        <option>优秀</option>
+                    </select>
+                </div>
+                <div class="label">❤️婚姻状况</div>
+                <div class="item">
+                    <select style="width: 100px;">
+                        <option selected>未婚</option>
+                        <option>已婚</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="photo-container">
+            <div class="photo-img-box" id="photoPreviewBox">
+                <span id="photoPlaceholderText" class="photo-placeholder">📷 照片预览</span>
+                <img id="previewImage" src="" alt="证件照" style="display: none; width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div>
+                <label class="file-btn" for="uploadPhoto">选择文件</label>
+                <input type="file" id="uploadPhoto" accept="image/jpeg,image/png,image/jpg">
+            </div>
+            <div style="font-size:12px; color:#555;">支持jpg/png，点击选择</div>
+        </div>
+    </div>
+
+    <div class="group-title">💻 专业能力</div>
+
+    <div class="row">
+        <div class="label">💼求职意向</div>
+        <div class="item" style="gap: 20px;">
+            <label><input type="checkbox"> 前端开发</label>
+            <label><input type="checkbox"> 后端开发</label>
+            <label><input type="checkbox"> 软件测试</label>
+        </div>
+        <div class="label" style="width: 120px;">🏫专业</div>
+        <div class="item">
+            <select style="width: 220px;">
+                <option selected>计算机科学与技术</option>
+                <option>软件工程</option>
+                <option>数据科学与大数据技术</option>
+                <option>人工智能</option>
+                <option>网络工程</option>
+                <option>信息管理与信息系统</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="label">🏛 毕业院校</div>
+        <div class="item">
+            <input type="text" value="烟台理工学院" disabled style="width:240px; background:#e9e9e9;">
+        </div>
+        <div class="label">技能证书</div>
+        <div class="item">
+            <select style="width: 200px;">
+                <option selected>英语四级</option>
+                <option>计算机二级</option>
+                <option>英语六级</option>
+                <option>普通话证书</option>
+                <option>教师资格证</option>
+                <option>软件设计师</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="label">项目经历</div>
+        <div class="item" style="flex:1; height:auto; display:block; padding:10px;">
+            <textarea rows="3">完成个人静态网页制作
+熟悉HTML、CSS基础布局。
+完成数据库课程设计，实现信息管理系统功能。</textarea>
+        </div>
+    </div>
+
+    <div class="group-title">📝 综合说明</div>
+
+    <div class="row">
+        <div class="label">个人特长与爱好</div>
+        <div class="item" style="flex:1; height:auto; display:block; padding:10px;">
+            <textarea rows="3">擅长摄影、视频剪辑、写作、绘画。
+喜欢听音乐、旅行、运动、阅读。
+性格开朗，善于沟通，团队协作能力强。</textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="label">自我评价</div>
+        <div class="item" style="flex:1; height:auto; display:block; padding:10px;">
+            <textarea rows="4">本人性格开朗稳重，待人热情真诚，工作认真负责，积极主动，能吃苦耐劳，有较强的组织能力、团队协作精神和良好的沟通能力。学习态度端正，适应能力较强，对待事务耐心细致，善于总结反思。在集体中能积极配合他人完成各项任务，有较强的集体荣誉感与责任心，日常兴趣广泛，热爱生活，乐于尝试新事物，综合素养良好。今后将继续保持积极进取的态度，不断提升自我，以踏实认真的作风投入学习与工作，努力实现个人价值。</textarea>
+        </div>
+    </div>
+
+    <div class="btn-bar">
+        <button type="submit" id="submitBtn">提交</button>
+        <button type="reset" id="resetBtn">重置</button>
+    </div>
+</div>
+
+<script>
+    const photoInput = document.getElementById('uploadPhoto');
+    const previewImg = document.getElementById('previewImage');
+    const placeholderSpan = document.getElementById('photoPlaceholderText');
+
+    photoInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImg.src = e.target.result;
+                previewImg.style.display = 'block';
+                placeholderSpan.style.display = 'none';
+            };
+            reader.readAsDataURL(file);
+        } else {
+            previewImg.src = '';
+            previewImg.style.display = 'none';
+            placeholderSpan.style.display = 'inline';
+            if (file) {
+                alert('请选择图片文件 (jpg/png)');
+            }
+        }
+    });
+
+    const resetFormBtn = document.getElementById('resetBtn');
+    const formContainer = document.querySelector('.container');
+
+    function resetAllFields() {
+      
+        const nameInput = document.querySelector('.row input[type="text"][maxlength="10"]');
+        if (nameInput) nameInput.value = '赵依然';
+        
+        const radioFem = document.querySelector('input[name="gender"][value="女"]');
+        const radioMal = document.querySelector('input[name="gender"][value="男"]');
+        if (radioFem) radioFem.checked = true;
+        if (radioMal) radioMal.checked = false;
+        
+        const nativeSelect = document.querySelector('.row select');
+        if (nativeSelect && nativeSelect.options.length) nativeSelect.selectedIndex = 0;
+        
+        const phoneInput = document.querySelector('.row input[type="text"][value="18833556459"]');
+        if (phoneInput) phoneInput.value = '18833556459';
+        
+        const emailInput = document.querySelector('.row input[type="text"][value="24995939@qq.com"]');
+        if (emailInput) emailInput.value = '24995939@qq.com';
+        
+        const selects = document.querySelectorAll('select');
+        if (selects[1]) selects[1].value = '本科';
+       
+        if (selects[2]) selects[2].value = '良好';
+      
+        if (selects[3]) selects[3].value = '未婚';
+        
+        const checkboxes = document.querySelectorAll('.item input[type="checkbox"]');
+        checkboxes.forEach(cb => cb.checked = false);
+        
+        if (selects[4]) selects[4].value = '计算机科学与技术';
+        
+        const disabledInput = document.querySelector('input[disabled]');
+        if (disabledInput) disabledInput.value = '烟台理工学院';
+        
+        if (selects[5]) selects[5].value = '英语四级';
+        
+        const textareas = document.querySelectorAll('textarea');
+        if (textareas.length >= 3) {
+            textareas[0].value = `完成个人静态网页制作
+熟悉HTML、CSS基础布局。
+完成数据库课程设计，实现信息管理系统功能。`;
+            textareas[1].value = `擅长摄影、视频剪辑、写作、绘画。
+喜欢听音乐、旅行、运动、阅读。
+性格开朗，善于沟通，团队协作能力强。`;
+            textareas[2].value = `本人性格开朗稳重，待人热情真诚，工作认真负责，积极主动，能吃苦耐劳，有较强的组织能力、团队协作精神和良好的沟通能力。学习态度端正，适应能力较强，对待事务耐心细致，善于总结反思。在集体中能积极配合他人完成各项任务，有较强的集体荣誉感与责任心，日常兴趣广泛，热爱生活，乐于尝试新事物，综合素养良好。今后将继续保持积极进取的态度，不断提升自我，以踏实认真的作风投入学习与工作，努力实现个人价值。`;
+        }
+        
+        if (photoInput) photoInput.value = '';
+        if (previewImg) {
+            previewImg.src = '';
+            previewImg.style.display = 'none';
+        }
+        if (placeholderSpan) {
+            placeholderSpan.style.display = 'inline';
+        }
+    }
+
+    if (resetFormBtn) {
+        resetFormBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            resetAllFields();
+            const msg = document.createElement('div');
+            msg.innerText = '表单已重置为初始状态';
+            msg.style.position = 'fixed';
+            msg.style.bottom = '30px';
+            msg.style.left = '50%';
+            msg.style.transform = 'translateX(-50%)';
+            msg.style.backgroundColor = '#333';
+            msg.style.color = '#fff';
+            msg.style.padding = '6px 18px';
+            msg.style.borderRadius = '30px';
+            msg.style.fontSize = '13px';
+            msg.style.zIndex = '999';
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 1500);
+        });
+    }
+
+    const submitButton = document.getElementById('submitBtn');
+    if (submitButton) {
+        submitButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const nameVal = document.querySelector('.row input[type="text"][maxlength="10"]').value.trim();
+            const phoneVal = document.querySelector('.row input[type="text"][value="18833556459"]')?.value.trim() || '';
+            const emailVal = document.querySelector('.row input[type="text"][value="24995939@qq.com"]')?.value.trim() || '';
+            
+            const checkedJob = Array.from(document.querySelectorAll('.item input[type="checkbox"]')).some(cb => cb.checked);
+            if (!nameVal) {
+                alert('请填写姓名');
+                return;
+            }
+            if (!phoneVal) {
+                alert('联系电话不能为空');
+                return;
+            }
+            if (phoneVal && !/^1[3-9]\d{9}$/.test(phoneVal)) {
+                alert('联系电话格式错误（需11位手机号）');
+                return;
+            }
+            if (emailVal && !/^[^\s@]+@([^\s@]+\.)+[^\s@]+$/.test(emailVal)) {
+                alert('电子邮箱格式不正确');
+                return;
+            }
+            if (!checkedJob) {
+                alert('请至少选择一个求职意向');
+                return;
+            }
+            
+            alert(`✅ 提交成功！\n姓名：${nameVal}\n电话：${phoneVal}\n邮箱：${emailVal || '未填'}\n求职意向已选择。`);
+        });
+    }
+    
+    window.addEventListener('DOMContentLoaded', () => {
+        // 保证照片区域初始状态
+        if (previewImg) previewImg.style.display = 'none';
+        if (placeholderSpan) placeholderSpan.style.display = 'inline';
+              const photoBox = document.querySelector('.photo-img-box');
+        if (photoBox) photoBox.style.minHeight = '140px';
+    });
+</script>
+
+</body>
+</html>
